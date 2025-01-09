@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Convivencia Chat</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="bot-header">
+                <div class="bot-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600">
+                        <path d="M12 2L3 9v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9L12 2z"/>
+                        <path d="M12 4v6m0 3v.01"/>
+                        <rect x="9" y="15" width="6" height="6"/>
+                        <path d="M9 18h6"/>
+                        <path d="M17 9V4M7 9V4"/>
+                    </svg>
+                </div>
+                <div class="bot-title">
+                    <h1 class="text-xl font-bold text-gray-900">Manual de Convivencia</h1>
+                    <p class="text-sm text-gray-500">Tu asistente virtual para consultas</p>
+                </div>
+            </div>
+            <div class="bot-actions">
+                <a href="ENLACE_AL_MANUAL" target="_blank" class="action-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z"/>
+                    </svg>
+                    Ver Manual
+                </a>
+                <button onclick="toggleDarkMode()" class="action-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0-9 9 9 9 0 1 1-9-9Z"/>
+                    </svg>
+                    Modo Oscuro
+                </button>
+                <button onclick="shareChat()" class="action-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="5" r="3"/>
+                        <circle cx="6" cy="12" r="3"/>
+                        <circle cx="18" cy="19" r="3"/>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                    </svg>
+                    Compartir
+                </button>
+                <button onclick="resetChat()" class="reset-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                        <path d="M3 3v5h5"/>
+                    </svg>
+                    Reiniciar Chat
+                </button>
+                <button onclick="toggleTextToSpeech()" class="action-button" id="tts-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 6v12M6 12h12"/>
+                        <path d="M16 6a4 4 0 0 1 4 4M18 2a8 8 0 0 1 8 8"/>
+                    </svg>
+                    Leer mensajes
+                </button>
+            </div>
+        </div>
+        <div id="chat-container" class="chat-container"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" class="input-field" placeholder="Escribe tu consulta sobre el manual de convivencia...">
+            <button onclick="sendQuestion()" class="send-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m22 2-7 20-4-9-9-4Z"/>
+                    <path d="M22 2 11 13"/>
+                </svg>
+            </button>
+            <button id="mic-button" onclick="toggleRecording()" class="mic-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="22"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="developer-signature">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Powered by Jose Jorge M.M
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
